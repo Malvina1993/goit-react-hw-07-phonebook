@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {requestContacts, requestAddContact, requestDeleteContact} from '../services/app.js'
 
 export const fetchContacts = createAsyncThunk(
-  'contacts/get',
+  'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
       const contacts = await requestContacts();
@@ -14,7 +14,7 @@ export const fetchContacts = createAsyncThunk(
 );
 
 export const addContact = createAsyncThunk(
-  'contacts/add',
+  'contacts/addContact',
   async (newContact, thunkAPI) => {
     try {
       const contacts = await requestAddContact(newContact);
@@ -26,7 +26,7 @@ export const addContact = createAsyncThunk(
 );
 
 export const deleteContact = createAsyncThunk(
-  'contacts/delete',
+  'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
       
